@@ -291,6 +291,7 @@ body {
 
     h3 {
       margin-block-start: .4em;
+      color: var(--very-dark-blue);
     }
   }
 
@@ -298,11 +299,6 @@ body {
   a:focus-visible {
     color: var(--soft-red);
   }
-}
-
-.top-articles-container {
-  display: flex;
-  justify-content: space-between;
 }
 
 button {
