@@ -38,7 +38,10 @@
       <div class="span-2 featured-article-container">
         <h2 class="visually-hidden">Featured article</h2>
         <article class="featured">
-          <img class="featured__img" src="./assets/images/image-web-3-desktop.jpg" alt="">
+          <picture class="featured__img">
+            <source srcset="./assets/images/image-web-3-mobile.jpg" media="(max-width: 750px)">
+            <img src="./assets/images/image-web-3-desktop.jpg" alt="">
+          </picture>
           <h3 class="featured__title">The Bright Future of Web 3.0?</h3>
           <div class="flow">
             <p>

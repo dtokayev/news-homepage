@@ -24,8 +24,8 @@
   --fs-400: .95rem;
   --fs-700: 1.2rem;
   --fs-750: 2rem;
-  --fs-800: 2.5rem;
-  --fs-900: 3.5rem;
+  --fs-800: clamp(2rem, 5vw, 2.5rem);
+  --fs-900: clamp(2.4rem, 7vw, 3.5rem);
 }
 
 /* 1. Use a more-intuitive box-sizing model */
@@ -262,6 +262,8 @@ body {
 }
 
 .top-articles {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
   counter-reset: article-count;
 
   li {
@@ -367,5 +369,9 @@ button {
       gap: 1.1rem;
       font-size: 1.1rem;
     }
+  }
+
+  .new-articles {
+    padding: 1.5rem 1.2rem;
   }
 }
