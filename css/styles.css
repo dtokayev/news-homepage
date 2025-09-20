@@ -96,7 +96,7 @@ main {
 
 .three-columns {
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
 
   @container (width > calc(3 * 25ch)) {
     grid-template-columns: repeat(3, 1fr);
@@ -118,11 +118,11 @@ main {
 }
 
 .flow > * + * {
-  margin-block-start: 2em;
+  margin-block-start: 2.2em;
 }
 
 .section {
-  margin-block-end: 3rem;
+  margin-block-end: 4.5rem;
 }
 
 .separated-list {
@@ -208,7 +208,7 @@ body {
 
   @container (width > calc(25ch * 2)) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem 1rem;
+    gap: 2rem 2rem;
   }
 
   .featured__img {
