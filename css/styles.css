@@ -19,6 +19,8 @@
   --fw-regular: 400;
   --fw-semi-bold: 700;
   --fw-bold: 800;
+
+  --fs-400: .95rem;
 }
 
 /* 1. Use a more-intuitive box-sizing model */
@@ -135,7 +137,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-block: 3rem;
+  margin-block: 5.5rem 3.5rem;
 }
 
 ul {
@@ -146,7 +148,7 @@ ul {
 
 nav > ul {
   display: flex;
-  gap: 1rem;
+  gap: 2.5rem;
 
   a {
     text-decoration: none;
@@ -154,19 +156,21 @@ nav > ul {
 
     &:hover,
     &:focus-visible {
-      color: var(--soft-orange);
+      color: var(--soft-red);
     }
   }
 }
 
 body {
   font-family: var(--ff-base);
+  font-size: var(--fs-400);
   font-weight: var(--fw-regular);
   color: var(--dark-grayish-blue);
+  background-color: var(--off-white);
 }
 
 .base-layout {
-  --max-width: 1000px;
+  --max-width: 1110px;
   --col-width: 1rem;
   display: grid;
   grid-template-columns:
