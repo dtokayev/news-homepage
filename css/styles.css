@@ -20,6 +20,7 @@
   --fw-semi-bold: 700;
   --fw-bold: 800;
 
+  --fs-300: .9rem;
   --fs-400: .95rem;
 }
 
@@ -42,7 +43,7 @@
 
 body {
   /* 4. Add accessible line-height */
-  line-height: 1.6;
+  line-height: 1.7;
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
 }
@@ -72,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3, h4 {
-  line-height: 1.1;
+  line-height: 1.01;
 }
 
 :where(h1, h2, h3, h4) > a {
@@ -113,7 +114,7 @@ main {
 }
 
 .flow > * + * {
-  margin-block-start: 1em;
+  margin-block-start: 2em;
 }
 
 .section {
@@ -205,8 +206,9 @@ body {
   }
 
   .featured__title {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: var(--fw-bold);
+    color: var(--very-dark-blue);
   }
 }
 
@@ -215,12 +217,12 @@ body {
   cursor: pointer;
   background-color: var(--soft-red);
   color: var(--very-dark-blue);
-  padding: .7em 2.1em;
+  padding: .8em 2.1em;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: var(--fw-semi-bold);
-  font-size: .8rem;
-  letter-spacing: .1em;
+  font-size: var(--fs-300);
+  letter-spacing: .3em;
 
   &:hover,
   &:focus-visible {
