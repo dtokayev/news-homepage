@@ -1,0 +1,321 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter-VariableFont_slnt,wght.ttf');
+  font-weigth: 400 800;
+  font-display: swap;
+}
+
+:root {
+  --soft-orange: hsl(35, 77%, 62%);
+  --soft-red: hsl(5, 85%, 63%);
+
+  --off-white: hsl(36, 100%, 99%);
+  --grayish-blue: hsl(233, 8%, 79%);
+  --dark-grayish-blue: hsl(236, 13%, 42%);
+  --very-dark-blue: hsl(240, 100%, 5%);
+
+  --ff-base: 'Inter', sans-serif;
+
+  --fw-regular: 400;
+  --fw-semi-bold: 700;
+  --fw-bold: 800;
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.6;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.1;
+}
+
+:where(h1, h2, h3, h4) > a {
+  color: currentColor;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--soft-red);
+  }
+}
+
+main {
+  container-type: inline-size;
+}
+
+.three-columns {
+  display: grid;
+  gap: 1rem;
+
+  @container (width > calc(3 * 25ch)) {
+    grid-template-columns: repeat(3, 1fr);
+
+    > .span-2 {
+      grid-column: span 2;
+    }
+  }
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.flow > * + * {
+  margin-block-start: 1em;
+}
+
+.section {
+  margin-block-end: 3rem;
+}
+
+.separated-list {
+  & > * + * {
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: red;
+      margin-block: 2rem;
+    }
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 3rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav > ul {
+  display: flex;
+  gap: 1rem;
+
+  a {
+    text-decoration: none;
+    color: var(--dark-grayish-blue);
+
+    &:hover,
+    &:focus-visible {
+      color: var(--soft-orange);
+    }
+  }
+}
+
+body {
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  color: var(--dark-grayish-blue);
+}
+
+.base-layout {
+  --max-width: 1000px;
+  --col-width: 1rem;
+  display: grid;
+  grid-template-columns:
+    minmax(var(--col-width), 1fr)
+    min(var(--max-width), 100% - var(--col-width) * 2)
+    minmax(var(--col-width), 1fr);
+
+  & > * {
+    grid-column: 2 / 3;
+  }
+
+  & > .full-width {
+    grid-column: 1 / -1;
+    grid-column: 2 / 3;
+}
+
+.featured-article-container {
+  container-type: inline-size;
+}
+
+.featured {
+  display: grid;
+  gap: 1rem;
+
+  @container (width > calc(25ch * 2)) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1rem;
+  }
+
+  .featured__img {
+    grid-column: 1 / -1;
+  }
+
+  .featured__title {
+    font-size: 3rem;
+    font-weight: var(--fw-bold);
+  }
+}
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  background-color: var(--soft-red);
+  color: var(--very-dark-blue);
+  padding: .7em 2.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: var(--fw-semi-bold);
+  font-size: .8rem;
+  letter-spacing: .1em;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--very-dark-blue);
+    color: var(--off-white);
+  }
+}
+
+.new-articles {
+  background-color: var(--very-dark-blue);
+  padding: 2rem;
+}
+
+.top-articles {
+  counter-reset: article-count;
+
+  li {
+    counter-increment: article-count;
+  }
+
+
+  article {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 100px auto;
+
+    > div {
+      display: grid;
+      gap: .5rem;
+    }
+
+    > div::before {
+      line-height: 1;
+      content: counter(article-count, decimal-leading-zero);
+      display: block;
+      color: var(--soft-red);
+      font-size: 2rem;
+    }
+  }
+}
+
+.top-articles-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  display: none;
+}
+
+@media (width < 750px) {
+  button {
+    display: block;
+    position: absolute;
+    z-index: 999;
+    right: 1rem;
+    padding: 1rem;
+    background: transparent;
+    border: 0;
+  }
+
+  .icon-hamburger {
+    display: block;
+  }
+
+  .icon-close {
+    display: none;
+  }
+
+  nav {
+    display: none;
+  }
+
+  [aria-expanded='true'] {
+    .icon-hamburger {
+      display: none;
+    }
+
+    .icon-close {
+      display: block;
+    }
+  }
+
+  [aria-expanded='true'] + nav  {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 80%;
+    margin-left: auto;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .3);
+
+    ul {
+      margin-top: 20vh;
+      margin-left: 3rem;
+      display: grid;
+      gap: 3rem;
+      font-size: 1.5rem;
+    }
+  }
+}
