@@ -22,6 +22,9 @@
 
   --fs-300: .9rem;
   --fs-400: .95rem;
+  --fs-700: 1.2rem;
+  --fs-800: 2.5rem;
+  --fs-900: 3.5rem;
 }
 
 /* 1. Use a more-intuitive box-sizing model */
@@ -82,7 +85,7 @@ h1, h2, h3, h4 {
 
   &:hover,
   &:focus-visible {
-    color: var(--soft-red);
+    color: var(--soft-orange);
   }
 }
 
@@ -122,14 +125,20 @@ main {
 }
 
 .separated-list {
+  margin-block-start: 2.5em;
+
+  p {
+    margin-block-start: .6em;
+  }
+
   & > * + * {
     &::before {
       content: '';
       display: block;
       width: 100%;
       height: 1px;
-      background: red;
-      margin-block: 2rem;
+      background: hsl(from var(--grayish-blue) h s l / .3);
+      margin-block: 1.9rem;
     }
   }
 }
@@ -206,7 +215,7 @@ body {
   }
 
   .featured__title {
-    font-size: 3.5rem;
+    font-size: var(--fs-900);
     font-weight: var(--fw-bold);
     color: var(--very-dark-blue);
   }
@@ -233,7 +242,22 @@ body {
 
 .new-articles {
   background-color: var(--very-dark-blue);
-  padding: 2rem;
+  padding: 1.9rem 1.5rem;
+
+  h2 {
+    font-size: var(--fs-800);
+    color: var(--soft-orange);
+  }
+
+  h3 {
+    font-size: var(--fs-700);
+    font-weight: var(--fw-bold);
+    color: var(--off-white);
+  }
+
+  p {
+    color: var(--grayish-blue);
+  }
 }
 
 .top-articles {
@@ -242,7 +266,6 @@ body {
   li {
     counter-increment: article-count;
   }
-
 
   article {
     display: grid;
